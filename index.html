@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bài tập JS 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Bài 1 : Quản lý tuyển sinh -->
+    <section id="bai1_QLTS" >
+        <div class="container">
+            <h1>Bài 1 : Quản lý tuyển sinh</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4>Quản lý tuyển sinh</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input id="diemChuanHD" type="number" class="form-control bg-danger text-white" placeholder="Nhập điểm chuẩn của hội đồng">
+                            </div>
+
+                            <div class="form-group">   
+                                <input id="mon1" type="number" class="form-control bg-info text-white" placeholder="Nhập điểm môn thi thứ nhất">
+                            </div>
+                            <div class="form-group">
+                                <input id="mon2" type="number" class="form-control bg-info text-white" placeholder="Nhập điểm môn thi thứ hai">
+                            </div>
+                            <div class="form-group">
+                                <input id="mon3" type="number" class="form-control bg-info text-white" placeholder="Nhập điểm môn thi thứ ba">
+                            </div>
+                            <div class="form-group">
+                                <input id="khuVuc" type="text" class="form-control bg-warning text-white" placeholder="Nhập khu vực">
+                                <small>
+                                    <p style="margin-bottom:1px">Khu vực A : 2</p>
+                                    <p style="margin-bottom:1px">Khu vực B : 1</p>
+                                    <p style="margin-bottom:1px">Khu vực C : 0.5</p>
+                                    <p>(Nhập X nếu không thuộc khu vực ưu tiên)</p>
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <input id="doiTuong" type="text" class="form-control bg-dark text-white" placeholder="Nhập đối tượng">
+                                <small>
+                                    <p style="margin-bottom:1px">Đối tượng 1 : 2.5</p>
+                                    <p style="margin-bottom:1px">Đối tượng 2 : 1.5</p>
+                                    <p style="margin-bottom:1px">Đối tượng 3 : 1</p>
+                                    <p>(Nhập 0 nếu không thuộc đối tượng ưu tiên)</p>
+                                </small>
+                            </div>
+
+
+                            <button onclick="tinhDiem(event)" type="submit" class="btn btn-success">Tính
+                                điểm</button>
+                        </div>
+                        <div id="cardFooter" class="card-footer bg-danger text-white" style="display: none;">
+                            <form>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <br>
+
+    <!-- Bài 2 : Tính tiền điện -->
+    <section id="bai2_TTD" >
+        <div class="container">
+            <h1>Bài 2 : Tính Tiền Điện</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4>Tính tiền điện</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input id="ten" type="text" class="form-control bg-danger text-white" placeholder="Nhập tên : ">
+                            </div>
+                            <div class="form-group">   
+                                <input id="soKw" type="number" class="form-control bg-info text-white" placeholder="Nhập số Kw">
+                            </div>
+
+                            <button onclick="tinhTienDien(event)" type="submit" class="btn btn-success">Tính
+                                tiền điện</button>
+                        </div>
+                        <div id="hienThiTienDien" class="card-footer bg-danger text-white" style="display: none;">
+                            <form>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <br>
+
+    <!-- Bài 3 : Tính tiền cáp  -->
+    <section id="bai3_TTC" >
+        <div class="container">
+            <h1>Bài 3 : Tính Tiền Cáp</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4>Tính tiền cáp</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input id="maKH" type="text" class="form-control bg-danger text-white" placeholder="Nhập mã khách hàng : ">
+                                <small>- Nhập "1" nếu bạn thuộc khách hàng Nhà dân</small><br>
+                                <small>- Nhập "2" nếu bạn thuộc khách hàng Doanh nghiệp</small>
+                            </div>
+                            <div class="form-group">   
+                                <input id="stk" type="text" class="form-control bg-info text-white" placeholder="Nhập số tài khoản">
+                            </div>
+                            <div class="form-group">   
+                                <input id="soKetNoiThem" type="text" class="form-control bg-warning text-white" placeholder="Nhập số kết nối thêm cần thuê">
+                                <small>(Chỉ áp dụng với khách hàng Doanh nghiệp)</small>
+                            </div>
+                            <div class="form-group">   
+                                <input id="soKenhCaoCap" type="text" class="form-control bg-dark text-white" placeholder="Nhập số kênh cao cấp cần thuê">
+                            </div>
+                            
+
+                            <button onclick="tinhTienCap(event)" type="submit" class="btn btn-success">Tính
+                                tiền cáp</button>
+                        </div>
+                        <div id="hienThiTienCap" class="card-footer bg-danger text-white" style="display: none;">
+                            <form>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4>Bảng giá</h4>
+                        </div>
+                        <div class="card-body">
+                           <h5>Đối với khách hàng Nhà dân</h5>
+                           <p>Phí xử lý hóa đơn : 4.5$</p>
+                           <p>Phí xử lý dịch vụ cơ bản : 20.5$</p>
+                           <p>Thuê kênh cao cấp : 7.5$/kênh</p>
+                           <hr>
+                           <h5>Đối với khách hàng Doanh nghiệp</h5>
+                           <p>Phí xử lý hóa đơn : 15$</p>
+                           <p>Phí xử lý dịch vụ cơ bản : 75$ cho 10 kết nối đầu, 5$ cho mỗi kết nối thêm</p>
+                           <p>Thuê kênh cao cấp : 50$/kênh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <br>
+    <br>
+    
+    <script src="main.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
